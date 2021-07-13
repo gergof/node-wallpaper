@@ -12,6 +12,12 @@
 						"-framework Foundation",
 						"-framework AppKit"
 					]
+				}],
+				["OS=='win'", {
+					"sources": [
+						"src/win/module/main.cpp",
+						"src/win/module/wallpaper.cpp"
+					]
 				}]
 			],
 			"include_dirs": [
