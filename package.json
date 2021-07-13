@@ -6,7 +6,7 @@
   "gypfile": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run clean && npm run build:gyp && tsc",
+    "build": "npm run clean && tsc",
     "build:gyp": "node-gyp configure && node-gyp build",
     "clean": "node-gyp clean && rimraf lib",
     "typecheck": "tsc --noEmit",
@@ -37,6 +37,7 @@
   },
   "homepage": "https://github.com/gergof/node-wallpaper#readme",
   "devDependencies": {
+    "@types/node": "^16.3.1",
     "@typescript-eslint/eslint-plugin": "^4.28.3",
     "@typescript-eslint/parser": "^4.28.3",
     "eslint": "^7.30.0",
