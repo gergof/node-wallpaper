@@ -1,5 +1,5 @@
 'use strict';
-const {commandExists, execFile} = require('../util.js');
+const { commandExists, execFile } = require('../util.js');
 
 exports.isAvailable = () => commandExists('gsettings');
 
@@ -13,7 +13,7 @@ exports.set = async imagePath => {
 };
 
 exports.get = async () => {
-	const {stdout} = await execFile('gsettings', [
+	const { stdout } = await execFile('gsettings', [
 		'get',
 		'org.gnome.desktop.background',
 		'picture-uri'

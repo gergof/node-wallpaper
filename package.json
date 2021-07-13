@@ -1,42 +1,89 @@
 {
-	"name": "wallpaper",
-	"version": "5.0.1",
-	"description": "Manage the desktop wallpaper",
-	"license": "MIT",
-	"repository": "sindresorhus/wallpaper",
-	"author": {
-		"name": "Sindre Sorhus",
-		"email": "sindresorhus@gmail.com",
-		"url": "https://sindresorhus.com"
-	},
-	"engines": {
-		"node": ">=12"
-	},
-	"scripts": {
-		"test": "xo && ava && tsd"
-	},
-	"files": [
-		"index.js",
-		"index.d.ts",
-		"source"
-	],
-	"keywords": [
-		"macos",
-		"linux",
-		"windows",
-		"wallpaper",
-		"desktop",
-		"background",
-		"image",
-		"picture",
-		"photo"
-	],
-	"devDependencies": {
-		"ava": "^2.1.0",
-		"tsd": "^0.15.1",
-		"xo": "^0.39.0"
-	},
-	"ava": {
-		"serial": true
-	}
+  "name": "node-wallpaper",
+  "version": "6.0.0",
+  "description": "Get wallpaper from any platform",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf lib && tsc",
+    "typecheck": "tsc --noEmit",
+    "lint": "esw --color --ext .ts src",
+    "lint:fix": "esw --color --fix --ext .ts src",
+    "lint:watch": "esw --color --fix --watch --cache --ext .ts src",
+    "format": "prettier --write src",
+    "release": "standard-version",
+    "release:pre": "standard-version --prerelease"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gergof/node-wallpaper.git"
+  },
+  "keywords": [
+    "wallpaper",
+    "image",
+    "desktop",
+    "background",
+    "linux",
+    "mac",
+    "windows"
+  ],
+  "author": "Fándly Gergő",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/gergof/node-wallpaper/issues"
+  },
+  "homepage": "https://github.com/gergof/node-wallpaper#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "@typescript-eslint/parser": "^4.28.3",
+    "eslint": "^7.30.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-watch": "^7.0.0",
+    "fs-extra": "^10.0.0",
+    "prettier": "^2.3.2",
+    "rimraf": "^3.0.2",
+    "standard-version": "^9.3.0",
+    "typescript": "^4.3.5"
+  },
+  "standard-version": {
+    "scripts": {
+      "prerelease": "git fetch --all --tags"
+    },
+    "types": [
+      {
+        "type": "feat",
+        "section": "Features"
+      },
+      {
+        "type": "fix",
+        "section": "Bug Fixes"
+      },
+      {
+        "type": "imp",
+        "section": "Improvements"
+      },
+      {
+        "type": "ci",
+        "section": "Build/CI"
+      },
+      {
+        "type": "chore",
+        "hidden": true
+      },
+      {
+        "type": "docs",
+        "section": "Documentation"
+      },
+      {
+        "type": "refactor",
+        "section": "Refactor"
+      },
+      {
+        "type": "test",
+        "section": "Testing"
+      }
+    ]
+  }
 }

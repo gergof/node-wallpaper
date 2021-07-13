@@ -1,13 +1,13 @@
 'use strict';
-const {commandExists, execFile, hasLine} = require('../util.js');
+const { commandExists, execFile, hasLine } = require('../util.js');
 
 exports.isAvailable = async () => {
-	if (!await commandExists('gsettings')) {
+	if (!(await commandExists('gsettings'))) {
 		return false;
 	}
 
 	try {
-		const {stdout} = await execFile('gsettings', ['list-schemas']);
+		const { stdout } = await execFile('gsettings', ['list-schemas']);
 		return hasLine(stdout, 'org.cinnamon.desktop.background');
 	} catch {
 		return false;
@@ -24,7 +24,7 @@ exports.set = async imagePath => {
 };
 
 exports.get = async () => {
-	const {stdout} = await execFile('gsettings', [
+	const { stdout } = await execFile('gsettings', [
 		'get',
 		'org.cinnamon.desktop.background',
 		'picture-uri'

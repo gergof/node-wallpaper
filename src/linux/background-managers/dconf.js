@@ -1,5 +1,5 @@
 'use strict';
-const {commandExists, execFile} = require('../util.js');
+const { commandExists, execFile } = require('../util.js');
 
 exports.isAvailable = () => commandExists('dconf');
 
@@ -12,7 +12,7 @@ exports.set = async imagePath => {
 };
 
 exports.get = async () => {
-	const {stdout} = await execFile('dconf', [
+	const { stdout } = await execFile('dconf', [
 		'read',
 		'/org/mate/desktop/background/picture-filename'
 	]);

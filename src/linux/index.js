@@ -45,7 +45,10 @@ exports.get = async () => {
 	let wallpaperMostVotedCount;
 
 	for (const [wallpaper] of wallpapersVoted) {
-		if (!wallpaperMostVoted || wallpaperMostVoted[wallpaper] > wallpaperMostVotedCount) {
+		if (
+			!wallpaperMostVoted ||
+			wallpaperMostVoted[wallpaper] > wallpaperMostVotedCount
+		) {
 			wallpaperMostVoted = wallpaper;
 			wallpaperMostVotedCount = wallpaperMostVoted[wallpaper];
 		}

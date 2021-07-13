@@ -1,5 +1,5 @@
 'use strict';
-const {promisify} = require('util');
+const { promisify } = require('util');
 const path = require('path');
 const childProcess = require('child_process');
 
@@ -9,7 +9,7 @@ const execFile = promisify(childProcess.execFile);
 const binary = path.join(__dirname, 'windows-wallpaper.exe');
 
 exports.get = async () => {
-	const {stdout} = await execFile(binary);
+	const { stdout } = await execFile(binary);
 	return stdout.trim();
 };
 
