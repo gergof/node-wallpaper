@@ -3,9 +3,12 @@
   "version": "6.0.0",
   "description": "Get wallpaper from any platform",
   "main": "lib/index.js",
+  "gypfile": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf lib && tsc",
+    "build": "npm run clean && npm run build:gyp && tsc",
+    "build:gyp": "node-gyp configure && node-gyp build",
+    "clean": "node-gyp clean && rimraf lib",
     "typecheck": "tsc --noEmit",
     "lint": "esw --color --ext .ts src",
     "lint:fix": "esw --color --fix --ext .ts src",
@@ -42,6 +45,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-watch": "^7.0.0",
     "fs-extra": "^10.0.0",
+    "node-gyp": "^8.1.0",
     "prettier": "^2.3.2",
     "rimraf": "^3.0.2",
     "standard-version": "^9.3.0",
@@ -85,5 +89,8 @@
         "section": "Testing"
       }
     ]
+  },
+  "dependencies": {
+    "node-addon-api": "^4.0.0"
   }
 }
