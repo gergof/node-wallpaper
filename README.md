@@ -36,5 +36,4 @@ Returns a `Promise<string>` with the path of the current desktop wallpaper.
 
 ### Roadmap
 
-[] Allow setting the wallpapers (only linux supports it so far)
-
+[ ] Allow setting the wallpapers (only linux supports it so far)
