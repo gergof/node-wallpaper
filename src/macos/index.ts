@@ -9,7 +9,9 @@ class MacWallpaper implements Wallpaper {
 		}
 
 		return Promise.resolve(
-			nativeModule.getWallpaperPath().replace('file://', '')
+			decodeURIComponent(
+				nativeModule.getWallpaperPath().replace('file://', '')
+			)
 		);
 	}
 }
