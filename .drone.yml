@@ -3,12 +3,9 @@ kind: pipeline
 type: docker
 name: test
 trigger:
-  event:
-    - push
-    - tag
   ref:
-    - refs/head/main
-    - refs/pull/*
+    - refs/heads/main
+    - refs/pull/**
     - refs/tags/*
 steps:
   - name: install-deps
@@ -29,9 +26,7 @@ type: docker
 name: build
 trigger:
   event:
-    -tag
-  ref:
-    - refs/tags/*
+    - tag
 depends_on:
   - test
 steps:
@@ -55,6 +50,6 @@ steps:
       
 ---
 kind: signature
-hmac: e4a76df5222e1ccc34df4f8ee0d483e2f76d903169fc1649c9539dd89731649d
+hmac: a7ad65071c41240d569309e0e7ce8826d780157b2e218ce4ba07c1c7e1e11220
 
 ...
