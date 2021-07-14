@@ -8,7 +8,9 @@ class MacWallpaper implements Wallpaper {
 			return Promise.reject('Native module not found');
 		}
 
-		return Promise.resolve(nativeModule.getWallpaperPath());
+		return Promise.resolve(
+			nativeModule.getWallpaperPath().replace('file://', '')
+		);
 	}
 }
 
