@@ -17,6 +17,12 @@
     "release": "standard-version",
     "release:pre": "standard-version --prerelease"
   },
+  "files": [
+    "lib",
+    "src/win/module",
+    "src/macos/module",
+    "binding.gyp"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gergof/node-wallpaper.git"

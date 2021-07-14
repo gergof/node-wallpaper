@@ -1,0 +1,60 @@
+---
+kind: pipeline
+type: docker
+name: test
+trigger:
+  event:
+    - push
+    - tag
+  ref:
+    - refs/head/main
+    - refs/pull/*
+    - refs/tags/*
+steps:
+  - name: install-deps
+    image: node
+    commands:
+      - npm ci
+  - name: lint
+    image: node
+    commands:
+      - npm run lint
+  - name: typecheck
+    image: node
+    commands:
+      - npm run typecheck
+---
+kind: pipeline
+type: docker
+name: build
+trigger:
+  event:
+    -tag
+  ref:
+    - refs/tags/*
+depends_on:
+  - test
+steps:
+  - name: install-deps
+    image: node
+    commands:
+      - npm ci
+  - name: build
+    image: node
+    commands:
+      - npm run build
+  - name: deploy
+    image: node
+    environment:
+      NPM_TOKEN:
+        from_secret: npm_token
+    commands:
+      - npm set registry https://registry.npmjs.org
+      - npm set //registry.npmjs.org/:_authToken $NPM_TOKEN
+      - npm publish
+      
+---
+kind: signature
+hmac: e4a76df5222e1ccc34df4f8ee0d483e2f76d903169fc1649c9539dd89731649d
+
+...
