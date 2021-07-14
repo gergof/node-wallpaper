@@ -7,10 +7,10 @@ import {
 } from './background-managers/BackgroundManager';
 
 class LinuxWallpaper implements Wallpaper {
-	availableBMGetters: BackgroundManager[] | null = null;
-	availableBMSetters: BackgroundManager[] | null = null;
+	private availableBMGetters: BackgroundManager[] | null = null;
+	private availableBMSetters: BackgroundManager[] | null = null;
 
-	async queryAvailableBMs(): Promise<void> {
+	private async queryAvailableBMs(): Promise<void> {
 		this.availableBMGetters = [];
 		this.availableBMSetters = [];
 
