@@ -15,7 +15,7 @@ class LinuxWallpaper implements Wallpaper {
 		this.availableBMSetters = [];
 
 		const promises = backgroundManagers.map(bm => {
-			bm.isAvailable().then(capabilities => {
+			return bm.isAvailable().then(capabilities => {
 				if (capabilities.includes(BackgroundManagerCapabilities.GET)) {
 					this.availableBMGetters?.push(bm);
 				}
