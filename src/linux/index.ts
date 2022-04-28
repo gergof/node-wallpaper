@@ -75,6 +75,10 @@ class LinuxWallpaper implements Wallpaper {
 
 		return mostVotedVallapper[0];
 	}
+
+	set(path: string): Promise<void> {
+		return Promise.reject('Not implemented');
+	}
 }
 
 export default LinuxWallpaper;

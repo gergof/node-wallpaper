@@ -1,5 +1,6 @@
 interface Module {
 	getWallpaperPath(): string;
+	setWallpaper(path: string): void;
 }
 
 let addon: Module | undefined;

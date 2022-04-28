@@ -30,6 +30,18 @@ class Wallpaper implements IWallpaper {
 
 		return this.manager.get();
 	}
+
+	set(path: string): Promise<void> {
+		if (!this.manager) {
+			return Promise.reject(
+				new Error(
+					'Unsupported platform. Supported platforms: linux, win32, darwin'
+				)
+			);
+		}
+
+		return this.manager.set(path);
+	}
 }
 
 const wallpaper = new Wallpaper();

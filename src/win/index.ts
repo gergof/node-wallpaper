@@ -10,6 +10,13 @@ class WinWallpaper implements Wallpaper {
 
 		return Promise.resolve(nativeModule.getWallpaperPath());
 	}
+	set(path: string): Promise<void> {
+		if (!nativeModule) {
+			return Promise.reject('Native module not found');
+		}
+
+		return Promise.resolve(nativeModule.setWallpaper(path));
+	}
 }
 
 export default WinWallpaper;

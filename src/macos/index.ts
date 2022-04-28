@@ -14,6 +14,9 @@ class MacWallpaper implements Wallpaper {
 			)
 		);
 	}
+	set(path: string): Promise<void> {
+		return Promise.reject('Not implemented');
+	}
 }
 
 export default MacWallpaper;
