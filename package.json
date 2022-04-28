@@ -1,6 +1,6 @@
 {
   "name": "node-wallpaper",
-  "version": "6.0.2",
+  "version": "6.0.3",
   "description": "Get wallpaper from any platform",
   "main": "lib/index.js",
   "gypfile": true,
